@@ -1,33 +1,88 @@
-.App {
+@import url('https://fonts.googleapis.com/css?family=Righteous');
+
+@keyframes spin {
+  from {transform: rotate(0deg)}
+  to {transform: rotate(360deg)}
+}
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: linear-gradient(rgb(66, 244, 185), rgb(47, 216, 199));
+  font-family: 'Righteous', cursive;
+  height: 100vh;
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+.curDay {
+  float: left;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.temp-low {
+  color: #666;
 }
 
-.App-link {
-  color: #61dafb;
+.current-temp {
+  float: left;
+  padding: 5px 25px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.btn {
+  background: none;
+  border: none;
+  outline: 0;
+  cursor: pointer;
+}
+
+#search {
+  padding-bottom: 30px;
+  padding-top: 20px;
+  position: relative;
+}
+
+#search input{
+  background: none;
+  border-radius: 500px;
+  border: 1px solid black;
+  width: 93%;
+  padding: 5px 30px 5px 10px;
+}
+
+#search .btn {
+  position: absolute;
+  right: 20px;
+  top: 25px;
+}
+
+
+
+.date {
+  float: right;
+  padding: 15px 30px;
+
+}
+
+ul {
+  list-style: none;
+}
+
+.forecast-icons {
+  font-size: 4em;
+}
+
+.sun {
+  /* animation-duration: 4s;
+  animation-name: spin;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear; */
+  animation: spin 10s infinite linear;
+  color: #ecc464;
+}
+
+.cloud {
+  color: #868686;
 }

@@ -1,25 +1,38 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import Header from './components/layout/Header';
+import CurWeather from './components/CurWeather';
+import Search from './components/forms/Search';
+
 import './App.css';
 
 class App extends Component {
+
+  state = {
+    temp: {},
+    weather: [],
+    hasZip: false
+  }
+
+  showWeather = (data) => {
+    const temp = {
+      cur_temp: Math.round(data.main.temp),
+      max_temp: Math.round(data.main.temp_max),
+      min_temp: Math.round(data.main.temp_min)
+    }
+    const weather = data.weather[0].main;
+    this.setState({
+      hasZip: true, 
+      temp: temp,
+      weather: weather
+    });
+    
+  }
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div className="App" style={{height: '100%'}}>
+        <Header />
+        <Search data={this.showWeather}/>
+        {this.state.hasZip && <CurWeather temp={this.state.temp} weather={this.state.weather}/>}
       </div>
     );
   }
