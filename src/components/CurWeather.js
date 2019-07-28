@@ -13,36 +13,23 @@ export class CurWeather extends Component {
       this.checkForecast()
     }
 
-
-    // checkForecast() {
-    //   const weather = this.props.weather;
-    //   console.log(weather)
-    //     if(weather === 'Clear') {
-    //         return <i className="fas fa-sun sun"></i>
-    //     } else if(weather === 'Clouds') {
-    //         return <i className="fas fa-cloud cloud"></i>
-    //     } else if(weather === 'Rain') {
-    //         return <i className="fas fa-cloud-showers-heavy rain"></i>    
-    //     } else if(weather === 'Drizzle') {
-    //       return <i class="fas fa-cloud-sun"></i>
-    //     } else {
-    //       return <p>ERROR</p>
-    //     }
-    // }
-
     checkForecast() {
       const weather = this.props.weather;
       // console.log(weather)
         if(weather === 'Clear') {
             this.getIcon('yellow','CLEAR_DAY')
         } else if(weather === 'Clouds') {
-          this.getIcon('grey','CLOUDS')
+            this.getIcon('grey','CLOUDY')
         } else if(weather === 'Rain') {
-          this.getIcon('white','RAIN') 
+            this.getIcon('grey','RAIN') 
         } else if(weather === 'Drizzle') {
-          this.getIcon('white','SLEET')
+            this.getIcon('white','RAIN')
+        } else if(weather === 'Snow') {
+          this.getIcon('white','SNOW')
+        } else if(weather === 'Thunderstorm') {
+          this.getIcon('grey','SLEET')
         } else {
-          return <p>ERROR</p>
+          this.getIcon('grey','SLEET')
         }
     }
 
@@ -63,10 +50,7 @@ export class CurWeather extends Component {
   render() {
     const {temp} = this.props;
     return (
-      
       <div>
-        {/* <div className="forecast-icons">
-        </div> */}
         <canvas id="icon1" width="128" height="128"></canvas>
         <div style={{paddingBottom: '80px'}}>
           <div className="current-temp" style={{fontSize: '3em'}}>

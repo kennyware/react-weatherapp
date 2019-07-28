@@ -9,8 +9,7 @@ class App extends Component {
 
   state = {
     temp: {},
-    weather: [],
-    hasZip: false
+    weather: ''
   }
 
   showWeather = (data) => {
@@ -21,7 +20,6 @@ class App extends Component {
     }
     const weather = data.weather[0].main;
     this.setState({
-      hasZip: true, 
       temp: temp,
       weather: weather
     });
@@ -29,10 +27,13 @@ class App extends Component {
   }
   render() {
     return (
-      <div className="App" style={{height: '100%'}}>
+      <div className="App">
         <Header />
-        <Search data={this.showWeather}/>
-        {this.state.hasZip && <CurWeather temp={this.state.temp} weather={this.state.weather}/>}
+        <div className="container">
+          <Search data={this.showWeather}/>
+          {this.state.weather && <CurWeather temp={this.state.temp} weather={this.state.weather}/>}
+        </div>
+        
       </div>
     );
   }

@@ -18,6 +18,11 @@ body {
   text-align: center;
 }
 
+.container {
+  max-width: 820px;
+  margin: auto;
+}
+
 .curDay {
   float: left;
 }
@@ -42,23 +47,30 @@ body {
   padding-bottom: 30px;
   padding-top: 20px;
   position: relative;
+  width: 95%;
+  margin: auto;
 }
 
 #search input{
   background: none;
   border-radius: 500px;
   border: 1px solid black;
-  width: 93%;
+  width: 100%;
   padding: 5px 30px 5px 10px;
+  float: left;
 }
 
 #search .btn {
-  position: absolute;
-  right: 20px;
-  top: 25px;
+  float: left;
+  margin-top: 5px;
+  margin-left: -20px
 }
 
-
+#search::after {
+  content: "";
+  clear: both;
+  display: table;
+}
 
 .date {
   float: right;
@@ -75,10 +87,6 @@ ul {
 }
 
 .sun {
-  /* animation-duration: 4s;
-  animation-name: spin;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear; */
   animation: spin 10s infinite linear;
   color: #ecc464;
 }
