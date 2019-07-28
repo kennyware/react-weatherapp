@@ -12,7 +12,7 @@ export class Search extends Component {
     
     e.preventDefault();
     console.log('Submitted');
-    Axios.get(`http://api.openweathermap.org/data/2.5/weather?zip=${this.state.zip},us&APPID=5dad2cea5bb8f5da13e612d8678083db&units=imperial`)
+    Axios.get(`https://api.openweathermap.org/data/2.5/weather?zip=${this.state.zip},us&APPID=5dad2cea5bb8f5da13e612d8678083db&units=imperial`)
     .then(res => {
       console.log(res);
       this.props.data(res.data);
